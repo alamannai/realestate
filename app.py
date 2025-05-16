@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify
 from flask_pymongo import PyMongo
 from flask_bcrypt import Bcrypt
 from flask_jwt_extended import JWTManager, create_access_token, jwt_required, get_jwt_identity
+from flask_cors import CORS
 
 from dotenv import load_dotenv
 import os
@@ -11,6 +12,7 @@ import os
 load_dotenv() 
 
 app = Flask(__name__)
+CORS(app, origins="http://localhost:8080") 
 
 # MongoDB Atlas connection (replace with your actual connection string)
 app.config["MONGO_URI"] = os.getenv("MONGO_URI")
