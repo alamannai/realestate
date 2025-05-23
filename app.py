@@ -44,6 +44,7 @@ def register():
     users_collection.insert_one({
         "username": data["username"],
         "email": data["email"],
+        "role": "",
         "password": hashed_password
     })
 
@@ -66,7 +67,7 @@ def login():
     # Create JWT token
     access_token = create_access_token(identity=str(user["_id"]))
     
-    return jsonify({"message": "Login successful!", "access_token": access_token}), 200
+    return jsonify({"message": "Login successful!", "access_token": access_token, "role": user["role"]}), 200
 
 ### PROTECTED ROUTE (REQUIRES LOGIN) ###
 @app.route('/profile', methods=['GET'])
