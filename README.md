@@ -1,3 +1,6 @@
+#Install dependencies
+pip install -r requirements.txt
+
 #Activate env
 .venv\Scripts\activate
 
