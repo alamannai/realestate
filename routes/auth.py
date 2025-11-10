@@ -21,6 +21,8 @@ def register():
     users_collection.insert_one({
         "username": data["username"],
         "email": data["email"],
+        "firstName": "",
+        "lastName": "",
         "role": "",
         "password": hashed_password
     })
